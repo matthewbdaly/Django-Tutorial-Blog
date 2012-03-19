@@ -1,0 +1,19 @@
+<html>
+    <head>
+        <title>My Django Blog</title>
+    </head>
+    <body>
+        {% for post in posts %}
+        <h1><a href="/{{ post.slug }}">{{ post.title }}</a></h1>
+        <h3>{{ post.pub_date }}</h3>
+        {{ post.text }}
+        {% endfor %}
+        <br />
+        {% if page.has_previous %}
+        <a href="/{{ page.previous_page_number }}/">Previous Page</a>
+        {% endif %}
+        {% if page.has_next %}
+        <a href="/{{ page.next_page_number }}/">Next Page</a>
+        {% endif %}
+    </body>
+</html>
