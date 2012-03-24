@@ -22,7 +22,7 @@ class Post(models.Model):
     text = models.TextField()
     slug = models.SlugField(max_length=40, unique=True)
     author = models.ForeignKey(User)
-    categories = models.ManyToManyField(Category)
+    categories = models.ManyToManyField(Category, blank=True, null=True)
 
     def __unicode__(self):
         return self.title
