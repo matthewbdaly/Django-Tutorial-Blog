@@ -7,6 +7,9 @@ class Category(models.Model):
     slug = models.SlugField(max_length=40, unique=True)
     description = models.TextField()
 
+    class Meta:
+        verbose_name_plural = "Categories"
+
     def __unicode__(self):
         return self.title
 
