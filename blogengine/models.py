@@ -22,10 +22,14 @@ class Post(models.Model):
     text = models.TextField()
     slug = models.SlugField(max_length=40, unique=True)
     author = models.ForeignKey(User)
-    categories = models.ManyToManyField(Category, blank=True, null=True)
+    categories = models.ManyToManyField(Category, blank=True, null=True, through='CategoryToPost')
 
     def __unicode__(self):
         return self.title
 
     def get_absolute_url(self):
         return "/%s/%s/%s/" % (self.pub_date.year, self.pub_date.month, self.slug)
+
+class CategoryToPost(models.Model):
+    post = models.ForeignKey(Post)
+    category = models.ForeignKey(Category)
