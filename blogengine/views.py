@@ -37,6 +37,9 @@ def getCategory(request, categorySlug, selected_page=1):
     # Add pagination
     pages = Paginator(category_posts, 5)
 
+    # Get the category
+    category = Category.objects.filter(slug=categorySlug)[0]
+
     # Get the specified page
     try:
         returned_page = pages.page(selected_page)
@@ -44,4 +47,4 @@ def getCategory(request, categorySlug, selected_page=1):
         returned_page = pages.page(pages.num_pages)
 
     # Display all the posts
-    return render_to_response('posts.html', { 'posts': returned_page.object_list, 'page': returned_page})
+    return render_to_response('category.html', { 'posts': returned_page.object_list, 'page': returned_page, 'category': category})

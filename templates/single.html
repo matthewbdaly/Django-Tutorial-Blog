@@ -4,6 +4,7 @@
         <h3>{{ post.pub_date }}</h3>
         {{ post.text }}
         <h3>By {{ post.author.first_name }} {{ post.author.last_name }}</h3>
+        <h3>Categories: {% for category in post.categories.all %} {{ category.title }} {% endfor %}</h3>
         {% endfor %}
         <br />
         {% if page.has_previous %}
