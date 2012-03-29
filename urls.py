@@ -1,4 +1,5 @@
 from django.conf.urls.defaults import patterns, include, url
+from blogengine.views import PostsFeed
 
 # Uncomment the next two lines to enable the admin:
 from django.contrib import admin
@@ -28,6 +29,9 @@ urlpatterns = patterns('',
 
     # Comments
     url(r'^comments/', include('django.contrib.comments.urls')),
+
+    # RSS feeds
+    url(r'^feeds/posts/$', PostsFeed()),
 
     # Flat pages
     url(r'', include('django.contrib.flatpages.urls')),
