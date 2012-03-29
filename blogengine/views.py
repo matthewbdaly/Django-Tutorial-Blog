@@ -1,6 +1,7 @@
 # Create your views here.
 from django.shortcuts import render_to_response
 from django.core.paginator import Paginator, EmptyPage
+from django.template import RequestContext
 from blogengine.models import Post, Category
 
 def getPosts(request, selected_page=1):
@@ -24,7 +25,7 @@ def getPost(request, postSlug):
     post = Post.objects.filter(slug=postSlug)
 
     # Display specified post
-    return render_to_response('single.html', { 'posts':post})
+    return render_to_response('single.html', { 'posts':post}, context_instance=RequestContext(request))
 
 def getCategory(request, categorySlug, selected_page=1):
     # Get specified category

@@ -26,6 +26,9 @@ urlpatterns = patterns('',
     url(r'^categories/(?P<categorySlug>\w+)/?$', 'blogengine.views.getCategory'),
     url(r'^categories/(?P<categorySlug>\w+)/(?P<selected_page>\d+)/?$', 'blogengine.views.getCategory'),
 
+    # Comments
+    url(r'^comments/', include('django.contrib.comments.urls')),
+
     # Flat pages
     url(r'', include('django.contrib.flatpages.urls')),
 )

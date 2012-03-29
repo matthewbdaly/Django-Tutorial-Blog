@@ -1,8 +1,11 @@
 {% include 'header.html' %}
+        {% load comments %}
         {% if posts %}
         {% for post in posts %}
         <h1><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h1>
         {{ post.text }}
+        {% get_comment_count for post as comment_count %}
+        <h3>Comments: {{ comment_count }}</h3>
         {% endfor %}
         <br />
         {% if page.has_previous %}
