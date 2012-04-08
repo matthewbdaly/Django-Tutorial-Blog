@@ -4,6 +4,7 @@ from django.core.paginator import Paginator, EmptyPage
 from django.template import RequestContext
 from blogengine.models import Post, Category
 from django.contrib.syndication.views import Feed
+from django.contrib.flatpages.models import FlatPage
 
 def getPosts(request, selected_page=1):
     # Get all blog posts

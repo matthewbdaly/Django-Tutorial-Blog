@@ -1,6 +1,7 @@
 {% include 'header.html' %}
         {% load comments %}
         {% for post in posts %}
+        <div class="post">
         <h1><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h1>
         <h3>{{ post.pub_date }}</h3>
         {{ post.text }}
@@ -16,6 +17,7 @@
         {% endfor %}
         {% render_comment_form for post %}
         {% endfor %}
+        </div>
         <br />
         {% if page.has_previous %}
         <a href="/{{ page.previous_page_number }}/">Previous Page</a>

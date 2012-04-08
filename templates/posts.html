@@ -2,10 +2,12 @@
         {% load comments %}
         {% if posts %}
         {% for post in posts %}
+        <div class="post">
         <h1><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h1>
         {{ post.text }}
         {% get_comment_count for post as comment_count %}
         <h3>Comments: {{ comment_count }}</h3>
+        </div>
         {% endfor %}
         <br />
         {% if page.has_previous %}
@@ -15,6 +17,8 @@
         <a href="/{{ page.next_page_number }}/">Next Page</a>
         {% endif %}
         {% else %}
+        <div class="post">
         <p>No posts matched</p>
+        </div>
         {% endif %}
 {% include 'footer.html' %}

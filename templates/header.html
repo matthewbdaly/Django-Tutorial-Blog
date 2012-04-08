@@ -1,5 +1,16 @@
 <html>
     <head>
         <title>My Django Blog</title>
+        <link rel="stylesheet" type="text/css" href="/static/style.css" />
     </head>
     <body>
+        <div id="main">
+            <h1>My Django Blog</h1>
+            <ul id="pageList">
+                <li><a href="/">Home</a></li>
+                {% load flatpages %}
+                {% get_flatpages as flatpages %}
+                {% for flatpage in flatpages %}
+                <li><a href="{{ flatpage.url }}">{{ flatpage.title }}</a></li>
+                {% endfor %}
+            </ul>
