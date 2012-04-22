@@ -1,0 +1,6 @@
+{% include 'header.html' %}
+        {% for category in object_list %}
+            <h3>{{ category.title }}</h3>
+            <p>{{ category.description }}</p>
+        {% endfor %}
+{% include 'footer.html' %}
