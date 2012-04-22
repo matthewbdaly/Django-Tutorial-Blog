@@ -1,7 +1,7 @@
 {% include 'header.html' %}
         {% load comments %}
-        {% if posts %}
-        {% for post in posts %}
+        {% if object_list %}
+        {% for post in object_list %}
         <div class="post">
         <h1><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h1>
         {{ post.text }}
@@ -10,11 +10,11 @@
         </div>
         {% endfor %}
         <br />
-        {% if page.has_previous %}
-        <a href="/{{ page.previous_page_number }}/">Previous Page</a>
+        {% if page_obj.has_previous %}
+        <a href="/{{ page_obj.previous_page_number }}/">Previous Page</a>
         {% endif %}
-        {% if page.has_next %}
-        <a href="/{{ page.next_page_number }}/">Next Page</a>
+        {% if page_obj.has_next %}
+        <a href="/{{ page_obj.next_page_number }}/">Next Page</a>
         {% endif %}
         {% else %}
         <div class="post">
