@@ -5,7 +5,7 @@ It provides the following features:
 Posts
 =====
 
-Well, wouldn't you expect to see them?
+Well, wouldn't you expect to see them in a blogging application?
 
 Flat pages
 ==========
